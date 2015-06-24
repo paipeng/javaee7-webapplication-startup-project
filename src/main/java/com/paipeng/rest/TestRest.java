@@ -29,7 +29,7 @@ public class TestRest {
 	@GET
 	@POST
 	public Response echo(@QueryParam("echo") String echo) {
-		log.info("echo " + echo);
+		log.info("echo: " + echo);
 		return Response.ok(echo).build();
 	}
 }
