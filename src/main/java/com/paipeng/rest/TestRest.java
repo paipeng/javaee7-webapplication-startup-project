@@ -1,5 +1,6 @@
 package com.paipeng.rest;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -12,12 +13,19 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
+import com.paipeng.jpa.model.Lotto;
+import com.paipeng.jpa.service.LottoService;
+
 @RequestScoped
 @Path("")
 public class TestRest {
 
 	@Inject
 	protected Logger log;
+	
+	@Inject
+	protected LottoService lottoService;
+	
 
 	@PostConstruct
 	public void postConstruct() {
@@ -32,4 +40,16 @@ public class TestRest {
 		log.info("echo: " + echo);
 		return Response.ok(echo).build();
 	}
+	
+	@Path("/lottos")
+	@Produces("application/json")
+	@GET
+	@POST
+	public Response lottos() {
+		log.info("lottos");
+		List<Lotto> lottoList = lottoService.getLottos();
+		return Response.ok(lottoList).build();
+	}
+	
+	
 }
