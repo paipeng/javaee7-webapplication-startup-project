@@ -28,26 +28,26 @@ public class Lotto implements Serializable{
 	@Column(nullable=false)
 	private Date date;
 
-	@Column(nullable=false, name = "l1")
-	private int l1;
+	@Column(nullable=false)
+	private int z1;
 	
-	@Column(nullable=false, name = "l2")
-	private int l2;
+	@Column(nullable=false)
+	private int z2;
 	
-	@Column(nullable=false, name = "l3")
-	private int l3;
+	@Column(nullable=false)
+	private int z3;
 	
-	@Column(nullable=false, name = "l4")
-	private int l4;
+	@Column(nullable=false)
+	private int z4;
 	
-	@Column(nullable=false, name = "l5")
-	private int l5;
+	@Column(nullable=false)
+	private int z5;
 	
-	@Column(nullable=false, name = "l6")
-	private int l6;
+	@Column(nullable=false)
+	private int z6;
 	
-	@Column(nullable=false, name = "s")
-	private int s;
+	@Column(nullable=false)
+	private int zs;
 	
 
 	public Lotto() {
@@ -75,74 +75,75 @@ public class Lotto implements Serializable{
 	}
 
 
-	public int getL1() {
-		return l1;
+	public int getZ1() {
+		return z1;
 	}
 
 
-	public void setL1(int l1) {
-		this.l1 = l1;
+	public void setZ1(int z1) {
+		this.z1 = z1;
 	}
 
 
-	public int getL2() {
-		return l2;
+	public int getZ2() {
+		return z2;
 	}
 
 
-	public void setL2(int l2) {
-		this.l2 = l2;
+	public void setZ2(int z2) {
+		this.z2 = z2;
 	}
 
 
-	public int getL3() {
-		return l3;
+	public int getZ3() {
+		return z3;
 	}
 
 
-	public void setL3(int l3) {
-		this.l3 = l3;
+	public void setZ3(int z3) {
+		this.z3 = z3;
 	}
 
 
-	public int getL4() {
-		return l4;
+	public int getZ4() {
+		return z4;
 	}
 
 
-	public void setL4(int l4) {
-		this.l4 = l4;
+	public void setZ4(int z4) {
+		this.z4 = z4;
 	}
 
 
-	public int getL5() {
-		return l5;
+	public int getZ5() {
+		return z5;
 	}
 
 
-	public void setL5(int l5) {
-		this.l5 = l5;
+	public void setZ5(int z5) {
+		this.z5 = z5;
 	}
 
 
-	public int getL6() {
-		return l6;
+	public int getZ6() {
+		return z6;
 	}
 
 
-	public void setL6(int l6) {
-		this.l6 = l6;
+	public void setZ6(int z6) {
+		this.z6 = z6;
 	}
 
 
-	public int getS() {
-		return s;
+	public int getZs() {
+		return zs;
 	}
 
 
-	public void setS(int s) {
-		this.s = s;
+	public void setZs(int zs) {
+		this.zs = zs;
 	}
+
 
 
 	
