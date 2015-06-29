@@ -28,25 +28,25 @@ public class Lotto implements Serializable{
 	@Column(nullable=false)
 	private Date date;
 
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z1;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z2;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z3;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z4;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z5;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int z6;
 	
-	@Column(nullable=false)
+	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int zs;
 	
 
