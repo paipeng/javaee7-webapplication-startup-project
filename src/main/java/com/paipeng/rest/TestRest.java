@@ -14,6 +14,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.paipeng.jms.MessageSender;
 import com.paipeng.jpa.model.Lotto;
 import com.paipeng.jpa.service.LottoService;
 
@@ -27,6 +28,8 @@ public class TestRest {
 	@Inject
 	protected LottoService lottoService;
 	
+	@Inject
+	protected MessageSender messageSender;
 
 	@PostConstruct
 	public void postConstruct() {
@@ -62,5 +65,17 @@ public class TestRest {
 		Lotto lotto = lottoService.getLastLotto();
 		return lotto;
 	}
+	
+	@Path("/jms/")
+	@Produces({MediaType.APPLICATION_JSON})
+	@GET
+	@POST
+	public Response sendJMS(@QueryParam("message") String message) {
+		log.info("sendJMS " + message);
+		
+		messageSender.sendMessage(message);
+		return Response.ok(message).build();
+	}
+	
 	
 }
