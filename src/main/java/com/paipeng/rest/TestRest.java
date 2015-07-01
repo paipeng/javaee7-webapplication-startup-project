@@ -11,6 +11,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.paipeng.jpa.model.Lotto;
@@ -42,14 +43,24 @@ public class TestRest {
 	}
 	
 	@Path("/lottos")
-	@Produces("application/json")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	@GET
 	@POST
-	public Response lottos() {
+	public List<Lotto> lottos() {
 		log.info("lottos");
 		List<Lotto> lottoList = lottoService.getLottos();
-		return Response.ok(lottoList).build();
+		return lottoList;
 	}
 	
+	
+	@Path("/newLotto")
+	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@GET
+	@POST
+	public Lotto newLotto() {
+		log.info("newLotto");
+		Lotto lotto = lottoService.getLastLotto();
+		return lotto;
+	}
 	
 }

@@ -7,10 +7,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@NamedQueries({
+	@NamedQuery(name=Lotto.getSum, query="SELECT l.z1+l.z2+l.z3+l.z4+l.z5+l.z6 from Lotto l WHERE l.id=:lottoId"),
+	@NamedQuery(name=Lotto.getLastLotto, query="SELECT l from Lotto l order by l.id desc")
+})
+
+@XmlRootElement
 @Entity
 @Table(name = "lotto")
 public class Lotto implements Serializable{
@@ -19,6 +30,9 @@ public class Lotto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	public static final String getSum = "Lotto.getSum";
+	public static final String getLastLotto = "Lotto.getLastLotto";
 	
 	@Id 
 	@GeneratedValue
@@ -49,6 +63,8 @@ public class Lotto implements Serializable{
 	@Column(nullable=false, columnDefinition = "TINYINT(1)")
 	private int zs;
 	
+	@Transient
+	private int sum;
 
 	public Lotto() {
 		
@@ -142,6 +158,16 @@ public class Lotto implements Serializable{
 
 	public void setZs(int zs) {
 		this.zs = zs;
+	}
+
+
+	public int getSum() {
+		return sum;
+	}
+
+
+	public void setSum(int sum) {
+		this.sum = sum;
 	}
 
 
