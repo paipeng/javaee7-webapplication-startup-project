@@ -78,4 +78,21 @@ public class TestRest {
 	}
 	
 	
+	@Path("/jmsRemote/")
+	@Produces({MediaType.APPLICATION_JSON})
+	@GET
+	@POST
+	public Response sendRemoteJMS(@QueryParam("message") String message) {
+		log.info("jmsRemote " + message);
+		
+		try {
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return Response.ok(message).build();
+	}
+	
+	
 }
