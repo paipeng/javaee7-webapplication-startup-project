@@ -16,7 +16,9 @@ import javax.jms.TextMessage;
 
 @MessageDriven(activationConfig = {
 		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-		@ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/jms/queue/exampleQueue") })
+		@ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/jms/queue/exampleQueue"),  
+        @ActivationConfigProperty(propertyName = "connectorClassName", propertyValue = "org.hornetq.core.remoting.impl.netty.NettyConnectorFactory"),          
+        @ActivationConfigProperty(propertyName = "connectionParameters", propertyValue = "host=localhost;port=5445")})
 public class MessageService implements MessageListener {
 
 	@Inject

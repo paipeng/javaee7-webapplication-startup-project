@@ -3,7 +3,7 @@
 	<hornetq-server>
 		<jms-destinations>
 			<jms-queue name="QueueOne">
-				<entry name="jms/queue/test" />
+				<entry name="jms/queue/exampleQueue" />
 				<entry name="java:jboss/jms/queue/exampleQueue" />
 				<durable>true</durable>
 			</jms-queue>
